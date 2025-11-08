@@ -429,7 +429,8 @@ function pvUser(nome) {
   };
 
   ws.onclose = () => {
-    mostrarGeral("Sistema", "Servidor desconectado.");
+    mostrarGeral("Sistema", "Servidor desconectado.")
+    location.reload()
   };
 
 document.addEventListener("click", (e) => {
