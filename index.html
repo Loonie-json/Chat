@@ -107,13 +107,21 @@
   }
 
   .rename {
-    padding: 8px 12px;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    font-size: 18px;
-    color: #fff;
-    background-color: #1b1925;
-  }
+  padding: 6px 12px;
+  cursor: pointer;
+  border: 1px solid var(--accent2);
+  border-radius: 6px;
+  font-size: 16px;
+  color: #fff;
+  background-color: var(--panel);
+  margin-left: auto;
+  transition: 0.2s;
+}
+
+.rename:hover {
+  background-color: var(--accent2);
+  color: #000;
+}
 
   .notif {
     display: inline-block;
