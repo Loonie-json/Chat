@@ -10,7 +10,15 @@ server.listen(PORT, () => {
   console.log("Rodando na porta", PORT);
 });
 
-let users = new Map()
+let users = new Map();
+
+setInterval(() => {
+  for (const [sock] of users) {
+    if (sock.readyState === 1) {
+      sock.ping(); 
+    }
+  }
+}, 3000)
 
 function broadcast(data, except = null) {
     const msg = JSON.stringify(data);
@@ -40,26 +48,26 @@ wss.on("connection", ws => {
             return;
         }
 
-	if (!users.has(ws)) {
-        ws.send(JSON.stringify({
-            tipo: "msg",
-            nome: "Sistema",
-            texto: "Envia seu nome antes, animal."
-        }));
-        return;
+        if (!users.has(ws)) {
+            ws.send(JSON.stringify({
+                tipo: "msg",
+                nome: "Sistema",
+                texto: "Envia seu nome antes, animal."
+            }));
+            return;
         }
 
         if (data.tipo === "kill") {
-        console.log("Servidor desligando a pedido do usuário:", data.nome);
-        broadcast({ tipo: "msg", 
-		nome: "Sistema", 
-		texto: `⚠ ${data.nome} desligou o servidor` 
-	})
-        setTimeout(() => {
-        wss.close();      
-        process.exit();   
-	}, 200)
-             return;
+            console.log("Servidor desligando a pedido do usuário:", data.nome);
+            broadcast({ tipo: "msg",
+                nome: "Sistema",
+                texto: `⚠ ${data.nome} desligou o servidor`
+            })
+            setTimeout(() => {
+                wss.close();
+                process.exit();
+            }, 200);
+            return;
         }
 
         if (data.tipo === "msg") {
@@ -90,4 +98,4 @@ wss.on("connection", ws => {
         users.delete(ws);
         enviarLista();
     });
-})
+});
