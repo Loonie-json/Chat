@@ -260,9 +260,12 @@
   let nome = localStorage.getItem("nome") || null
   let pegouNome = nome === null ? false : true
   let listaUsuarios = [];
-  
+ 
+  ws.onopen = () => {
   if(pegouNome) {
 	  ws.send(JSON.stringify({ tipo: "login", nome }))
+	  mostrarGeral("Sistema", `Bem vindo de volta ${nome}`)
+  }
   }
 
   const gerais   = document.getElementById("gerais");
