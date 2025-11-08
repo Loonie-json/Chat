@@ -431,7 +431,7 @@ function pvUser(nome) {
 
   ws.onclose = () => {
     mostrarGeral("Sistema", "Servidor desconectado.")
-    location.reload(true)
+    window.location.href = window.location.href.split("?")[0] + "?t=" + new Date().getTime()
   };
 
 document.addEventListener("click", (e) => {
