@@ -296,7 +296,7 @@
 <body>
 <div id="non">
   <h1 id="bv">Bem-vindo ao Chat do Loon</h1>
-  <p id="nan">Use "/pv NOME MENSAGEM"<br>• Caso queira usar o privado, ou apenas clique no nick da mensagem.<br>• A primeira mensagem caso seja a primeira entrada, é o seu nick.</p>
+  <p id="nan">Use "/pv NOME MENSAGEM"<br>• Caso queira usar o privado, ou apenas clique no nick da mensagem.<br>• A primeira mensagem caso seja a primeira entrada, é o seu nick, peço que não use espaço</p>
   <button class="Sumiu" onclick="Sumi()">Fechar</button>
 </div>
 <div id="app">
@@ -343,7 +343,7 @@
 	  ws.send(JSON.stringify({ tipo: "login", nome }))
 	  mostrarGeral("Sistema", `Bem vindo de volta ${nome}`)
   } else {
-	  mostrarGeral("Sistema", "Ponha seu nick pra ser identificado, caso ponha espaço você gosta de negões", false)
+	  mostrarGeral("Sistema", "Ponha seu nick pra ser identificado", false)
   }
   }
   
