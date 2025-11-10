@@ -423,6 +423,7 @@
   const tabGeral = document.getElementById("tab-geral");
   const tabPriv  = document.getElementById("tab-priv");
 const sugBox = document.getElementById("sug")
+const sus = document.getElementById("sus")
 
   entrada.blur()
   let activeTab = "geral";
@@ -439,10 +440,10 @@ function Sumi() {
 function sug() {
   if(suges) {
   sugBox.innerHTML = "X"
-  num.style.display = "flex"
+  sus.style.display = "flex"
   suges = !suges
   } else {
-    num.style.display = "none"
+    sus.style.display = "none"
     sugBox.innerHTML = "?"
     suges = !suges
   }
