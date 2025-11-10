@@ -234,6 +234,13 @@
   background-color: black;
 }
 
+#inputBox {
+  display: flex;
+  gap: 3px;
+  width: 100%;
+  align-items: center;
+}
+
   #entrada {
     box-sizing: border-box;
     border: none;
@@ -244,8 +251,9 @@
     outline: none;
     border-top: 1px solid #333;
     height: 40px;
-    width: 100%;
+    width: 80%;
     border-radius: 8px;
+    flex: 1;
   }
 
   #entrada::placeholder {
@@ -330,8 +338,10 @@
     </div>
 
   </div>
-
+  <div id="inputBox">
   <input id="entrada" placeholder="Digite aqui e ENTER…" />
+  <button id="sug" onclick="sug()">?</button>
+  </div>
   <div id="perfilMini"></div>
 
 </div>
