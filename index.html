@@ -258,9 +258,6 @@
   
 #sus {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background: #1b1925;
   padding: 16px;
   border-radius: 12px;
@@ -438,6 +435,11 @@ function Sumi() {
 }
 
 function sug() {
+  
+  const box = sugBox.getBoundingClientRect()
+  sus.style.left = box.left + "px";
+  sus.style.top = (box.top - sus.offsetHeight - 5) + "px";
+  
   if(suges) {
   sugBox.innerHTML = "X"
   sus.style.display = "flex"
