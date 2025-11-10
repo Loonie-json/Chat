@@ -186,6 +186,14 @@
   transform: translate(-50%, -50%);
   position: fixed;
   z-index: 99999999;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  pointer-events: auto;
+}
+
+#non.sumir {
+  opacity: 0;
+  pointer-events: none;
 }
 
 #nan {
@@ -254,10 +262,6 @@
 }
 .clickable:hover {
   color: var(--accent);
-}
-
-.sumir {
-  display: none;
 }
 
 </style>
@@ -334,6 +338,9 @@
 
 function Sumi() {
   non.classList.add("sumir")
+  setTimeout(() => {
+    non.style.display = "none"
+  }, 300)
 }
 
 function Rename() {
