@@ -576,6 +576,7 @@ function pvUser(nome) {
       const [, ...pergunta] = texto.split(" ")
       if (!pergunta.length) return mostrarGeral("Faltou a pergunta")
       ws.send(JSON.stringify({tipo:"ia", texto: pergunta.join(" ") }))
+      return
     }
     
     if (texto === "/off") {
