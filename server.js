@@ -105,7 +105,7 @@ wss.on("connection", ws => {
           let IA = await chamarIA(data.texto)
           broadcast({
             tipo: "ia",
-            nome: "Sistema",
+            nome: "Assistente Douglas",
             texto: IA
           })
           return
