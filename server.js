@@ -97,8 +97,8 @@ wss.on("connection", ws => {
         
         if (data.tipo === "ia") {
           async function chamarIA(prompt) {
-            let CO = `Responda em português: ${prompt}`
-          let api = await fetch(`https://shizuku-apis.shop/api/ias/gpt?texto=${prompt}&apitoken=Loon-dev`)
+            let CO = `Responda em pt-br: ${prompt}`
+          let api = await fetch(`https://shizuku-apis.shop/api/ias/gpt?texto=${CO}&apitoken=Loon-dev`)
           let resultado = await api.json()
           let resposta = await resultado.resultado.data[0].resposta
           return resposta
