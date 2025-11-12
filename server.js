@@ -30,7 +30,7 @@ function addMem(userId, role, content) {
 }
 
 function addContext(userId, minMensagens = 3) {
-  let historico = memoria[userId] || [];
+  let historico = mem[userId] || [];
   if (historico.length <= minMensagens) {
     return historico.map(m => `${m.role === "user" ? "Usuário" : "Douglas"}: ${m.content}`).join("\n");
   }
