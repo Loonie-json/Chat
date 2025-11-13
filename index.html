@@ -584,6 +584,11 @@ function pvUser(nome) {
       ws.close();
       return;
     }
+    
+    if (texto === '/reset') {
+      ws.send(JSON.stringify({ tipo:"clear", nome }));
+      return
+    }
 
     ws.send(JSON.stringify({ tipo:"msg", nome, texto }));
     mostrarGeral("Você", texto, true);

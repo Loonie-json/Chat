@@ -114,6 +114,16 @@ wss.on("connection", ws => {
             return;
         }
         
+        if (data.tipo === 'clear') {
+          mem = {}
+          broadcast({
+            tipo: msg,
+            nome: "Sistema",
+            texto: `${data.nome} Resetou a IA`
+          })
+          return
+        }
+        
         if (data.tipo === "ia") {
           addMem(data.nome, "user", data.texto)
           let contexto = addContext(data.nome)
